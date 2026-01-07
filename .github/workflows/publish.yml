@@ -43,6 +43,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.ref_name }}
+          path: fledgepower-deployment
 
       # Download and install Docker
       - name: Set up Docker
