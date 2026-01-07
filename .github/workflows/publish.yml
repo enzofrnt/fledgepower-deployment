@@ -36,10 +36,13 @@ jobs:
       contents: read
       packages: write
       security-events: write
-
+  
     steps:
+      # Clone repo
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref_name }}
 
       # Download and install Docker
       - name: Set up Docker
@@ -52,13 +55,6 @@ jobs:
         run: |
           sudo wget -qO /usr/local/bin/yq ${{ env.YQ_REPO }}
           sudo chmod a+x /usr/local/bin/yq
-
-      # Download fledgepower deployment
-      - name: Download fledgepower deployment
-        env:
-          FP_DEPLOY_REPO: "https://github.com/fledge-power/fledgepower-deployment.git"
-        run: |
-          git clone ${{ env.FP_DEPLOY_REPO }} --branch ${{ github.ref_name }} --single-branch
 
       # Log in to the Container registry ghcr.io
       - name: Log in to the Container registry
