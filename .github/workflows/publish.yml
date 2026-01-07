@@ -61,10 +61,6 @@ jobs:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
 
-      # Activate Docker Buildx
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
       # Execute script to prepare Dockerfiles
       - name: Prepare Dockerfiles
         run: |
