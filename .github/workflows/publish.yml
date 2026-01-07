@@ -72,7 +72,7 @@ jobs:
           sudo chmod +x ./buildContainerfile.sh
           ./buildContainerfile.sh
 
-      # 3. Build Fledge
+      # Build Fledge
       - name: Build Fledge
         uses: docker/build-push-action@v5
         with:
@@ -86,7 +86,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # 4. Build Fledge GUI
+      # Build Fledge GUI
       - name: Build Fledge GUI
         uses: docker/build-push-action@v5
         with:
