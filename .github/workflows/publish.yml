@@ -36,11 +36,13 @@ jobs:
       contents: read
       packages: write
       security-events: write
-
+  
     steps:
       # Clone repo
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref_name }}
 
       # Download and install Docker
       - name: Set up Docker
