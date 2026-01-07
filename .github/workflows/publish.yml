@@ -41,9 +41,10 @@ jobs:
       # Clone repo
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref_name }}
-          path: fledgepower-deployment
+
+      # Download and install Docker
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v4
 
       # Download and install yq yaml processor
       - name: Download and install yq
